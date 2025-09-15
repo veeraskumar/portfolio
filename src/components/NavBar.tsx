@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
+import { socialRef } from "./SocialLinks";
 
 interface LinksTpes {
   id: number;
@@ -32,6 +33,15 @@ const NavBar = () => {
       link: "Contact",
     },
   ];
+
+  const getAriaLabel = (url: string): string => {
+    if (url.includes("linkedin")) return "LinkedIn";
+    if (url.includes("github")) return "GitHub";
+    if (url.includes("mailto")) return "Email";
+    if (url.includes(".pdf") || url === "") return "Resume";
+    return "Social";
+  };
+
   return (
     <div className="flex justify-between items-center w-full h-20 text-white fixed bg-black px-4">
       <div className="font-signatureName text-5xl ml-2">VeerasKumar</div>
@@ -70,6 +80,31 @@ const NavBar = () => {
               </Link>
             </li>
           ))}
+          <div className={"flex flex-col top-[35%] left-0 fixed"}>
+            <ul>
+              {socialRef.map((list) => (
+                <li
+                  className={
+                    "flex justify-between items-center w-40 h-14 px-4 bg-black ml-[-100px] hover:ml-[-10px] hover:rounded-md duration-300 hover:bg-gray-700" +
+                    " " +
+                    list.style
+                  }
+                  key={list.id}
+                >
+                  <a
+                    href={list.href}
+                    className="flex justify-between items-center text-white w-full"
+                    download={list.download}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Visit my ${getAriaLabel(list.href)} page`}
+                  >
+                    {list.child}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </ul>
       )}
     </div>

@@ -11,49 +11,49 @@ interface socialRefType {
   download?: boolean;
 }
 
-const SocialLinks = () => {
-  const socialRef: socialRefType[] = [
-    {
-      id: 1,
-      child: (
-        <>
-          LinkedIn <FaLinkedin size={30} />
-        </>
-      ),
-      href: "https://linkedin.com/in/veeraskumar",
-      style: "rounded-tr-md",
-    },
-    {
-      id: 2,
-      child: (
-        <>
-          GitHub <FaGithub size={30} />
-        </>
-      ),
-      href: "https://github.com/veeraskumar",
-    },
-    {
-      id: 3,
-      child: (
-        <>
-          Mail <HiOutlineMail size={30} />
-        </>
-      ),
-      href: "mailto:veeraskumar.k.r@gmail.com",
-    },
-    {
-      id: 4,
-      child: (
-        <>
-          Resume <BsFillPersonLinesFill size={30} />
-        </>
-      ),
-      href: "https://docs.google.com/document/d/1y92STgPqk_IPmFO0dIsDdgJuKTY9oeamH0e9GulJ6G8/edit?usp=drivesdk",
-      style: "rounded-br-md",
-      download: true,
-    },
-  ];
+export const socialRef: socialRefType[] = [
+  {
+    id: 1,
+    child: (
+      <>
+        LinkedIn <FaLinkedin size={30} />
+      </>
+    ),
+    href: "https://linkedin.com/in/veeraskumar",
+    style: "rounded-tr-md",
+  },
+  {
+    id: 2,
+    child: (
+      <>
+        GitHub <FaGithub size={30} />
+      </>
+    ),
+    href: "https://github.com/veeraskumar",
+  },
+  {
+    id: 3,
+    child: (
+      <>
+        Mail <HiOutlineMail size={30} />
+      </>
+    ),
+    href: "mailto:veeraskumar.k.r@gmail.com",
+  },
+  {
+    id: 4,
+    child: (
+      <>
+        Resume <BsFillPersonLinesFill size={30} />
+      </>
+    ),
+    href: "https://docs.google.com/document/d/1y92STgPqk_IPmFO0dIsDdgJuKTY9oeamH0e9GulJ6G8/edit?usp=drivesdk",
+    style: "rounded-br-md",
+    download: true,
+  },
+];
 
+const SocialLinks = () => {
   const getAriaLabel = (url: string): string => {
     if (url.includes("linkedin")) return "LinkedIn";
     if (url.includes("github")) return "GitHub";
@@ -63,7 +63,7 @@ const SocialLinks = () => {
   };
 
   return (
-    <div className="hidden lg:flex flex-col top-[35%] left-0 fixed">
+    <div className={"hidden lg:flex flex-col top-[35%] left-0 fixed"}>
       <ul>
         {socialRef.map((list) => (
           <li
