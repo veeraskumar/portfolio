@@ -56,7 +56,10 @@ const NavBar = () => {
       {nav && (
         <ul className="flex flex-col justify-center items-center w-full h-screen absolute top-0 left-0 bg-gradient-to-b from-black to-gray-500 text-gray-500">
           {links.map((link) => (
-            <li key={link.id} className="px-4 cursor-pointer py-6 text-4xl">
+            <li
+              key={link.id}
+              className="px-4 cursor-pointer py-6 text-4xl hover:scale-105"
+            >
               <Link
                 to={link.link}
                 smooth={true}
